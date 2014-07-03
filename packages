@@ -1,2 +1,12 @@
 # List packages to add to your image one per line.
 nginx
+php55-fpm
+php55-mysqli
+php55-dom
+php55-json
+php55-pdo_mysql
+php55-iconv
+php55-mcrypt
+php55-mbstring
+php55-intl
+php55-exif
