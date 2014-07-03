@@ -1,3 +1,34 @@
 #!/bin/bash
 
+ROUNDCUBE_CONF='/var/www/roundcubemail/config/config.inc.php'
 
+# nginx ssl setup
+mdata-get nginx_ssl > /opt/local/etc/nginx/ssl/nginx.pem
+chmod 400 /opt/local/etc/nginx/ssl/nginx.pem
+
+# configure roundcube (required)
+cat << EOF > ${ROUNDCUBE_CONF}
+<?php
+\$config['product_name'] = "$(mdata-get product_name)";
+
+\$config['db_dsnw']      = "$(mdata-get db_dsnw)";
+
+\$config['default_host'] = "$(mdata-get default_host)";
+\$config['default_port'] = "$(mdata-get default_port)";
+
+\$config['smtp_server']  = "$(mdata-get smtp_server)";
+\$config['smtp_port']    = "$(mdata-get smtp_port)";
+
+\$config['des_key'] = "";
+EOF
+
+# configure roundcube (not required)
+if mdata-get support_url 1>/dev/null 2>&1; then
+	echo "\$config['support_url']  = \"$(mdata-get support_url)\";" >> ${ROUNDCUBE_CONF}
+fi
+if mdata-get skin_logo 1>/dev/null 2>&1; then
+	echo "\$config['skin_logo']    = \"$(mdata-get skin_logo)\";" >> ${ROUNDCUBE_CONF}
+fi
+if mdata-get ip_check 1>/dev/null 2>&1; then
+	echo "\$config['ip_check']     = $(mdata-get ip_check)" >> ${ROUNDCUBE_CONF}
+fi

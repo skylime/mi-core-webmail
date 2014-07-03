@@ -17,9 +17,9 @@ Please refer to https://github.com/joyent/mibe for use of this repo.
 - `imap_host` (required): The IMAP host(s) chosen to perform the log-in
 - `imap_port` (required): TCP port used for IMAP connections
 - `smtp_server` (required): Use this host for sending mails, ssl://smtp.host.com
-- `smtp_port`: (required): TCP port used for SMTP connections
+- `smtp_port` (required): TCP port used for SMTP connections
 
-- `nginx_ssl`: ssl cert, key and CA for imaps and pop3s in pem format
+- `nginx_ssl` (required): ssl cert, key and CA for imaps and pop3s in pem format
 
 ## services
 

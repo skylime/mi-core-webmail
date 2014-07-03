@@ -31,6 +31,10 @@ chown -R www:www /var/www
 echo "* Create ssl folder"
 mkdir -p /opt/local/etc/nginx/ssl
 
+echo "* Enable mdata-setup script"
+svccfg import /tmp/mdata-setup.xml
+rm /tmp/mdata-setup.xml
+
 # Remove install folder from roundcube
 echo "* Remove install folder from roundcube"
 rm -r /var/www/roundcubemail/installer
