@@ -4,6 +4,16 @@ Please refer to https://github.com/joyent/mibe for use of this repo.
 
 ## description
 
+Create zone that contains nginx, php with roundcube web interface for webmail
+support. It still requires a working database server that already contains the
+roundcube database scheme.
+
+Enabled plugins are:
+
+- managesieve
+- zipdownload
+- html5_notifier (https://github.com/kitist/html5_notifier)
+- serverinfo (http://axel.sjostedt.no/misc/dev/roundcube/)
 
 ## mdata variables
 
@@ -14,7 +24,7 @@ Please refer to https://github.com/joyent/mibe for use of this repo.
 
 - `db_dsnw` (required): Database settings for read/write operations, mysql://roundcube:@localhost/roundcubemail
 
-- `imap_host` (required): The IMAP host(s) chosen to perform the log-in
+- `imap_host` (required): The IMAP host(s) chosen to perform the log-in, ssl://imap.host.com
 - `imap_port` (required): TCP port used for IMAP connections
 - `smtp_server` (required): Use this host for sending mails, ssl://smtp.host.com
 - `smtp_port` (required): TCP port used for SMTP connections

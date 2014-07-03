@@ -11,4 +11,12 @@ cat << EOF >> ${ROUNDCUBE_PROVISION_CONFIG}
 \$config['password_charset'] = "UTF-8";
 \$config['default_charset']  = "UTF-8";
 
+\$config['plugins'] = array(
+	'managesieve',
+	'zipdownload',
+	'html5_notifier',
+	'serverinfo',
+	'thunderbird_labels'
+);
+
 EOF
