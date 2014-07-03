@@ -7,19 +7,18 @@ mdata-get nginx_ssl > /opt/local/etc/nginx/ssl/nginx.pem
 chmod 400 /opt/local/etc/nginx/ssl/nginx.pem
 
 # configure roundcube (required)
-cat << EOF > ${ROUNDCUBE_CONF}
-<?php
+cat ${ROUNDCUBE_CONF}.provision > ${ROUNDCUBE_CONF}
+cat << EOF >> ${ROUNDCUBE_CONF}
+// SETUP VIA MDATA
 \$config['product_name'] = "$(mdata-get product_name)";
 
 \$config['db_dsnw']      = "$(mdata-get db_dsnw)";
 
-\$config['default_host'] = "$(mdata-get default_host)";
-\$config['default_port'] = "$(mdata-get default_port)";
+\$config['default_host'] = "$(mdata-get imap_host)";
+\$config['default_port'] = "$(mdata-get imap_port)";
 
 \$config['smtp_server']  = "$(mdata-get smtp_server)";
 \$config['smtp_port']    = "$(mdata-get smtp_port)";
-
-\$config['des_key']      = "$(openssl rand -base64 48)";
 EOF
 
 # configure roundcube (not required)
