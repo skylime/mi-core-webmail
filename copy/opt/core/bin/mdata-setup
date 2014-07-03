@@ -1,6 +1,7 @@
 #!/bin/bash
 
-ROUNDCUBE_CONF='/var/www/roundcubemail/config/config.inc.php'
+ROUNDCUBE_PATH='/var/www/roundcubemail'
+ROUNDCUBE_CONF=${ROUNDCUBE_PATH}'/config/config.inc.php'
 
 # nginx ssl setup
 mdata-get nginx_ssl > /opt/local/etc/nginx/ssl/nginx.pem
@@ -31,3 +32,9 @@ fi
 if mdata-get ip_check 1>/dev/null 2>&1; then
 	echo "\$config['ip_check']     = $(mdata-get ip_check)" >> ${ROUNDCUBE_CONF}
 fi
+
+# configure sieve plugin
+cat << EOF >> ${ROUNDCUBE_PATH}'/plugins/managesieve/config.inc.php'
+<?php
+\$config['managesieve_host'] = "$(mdata-get imap_host)";
+EOF

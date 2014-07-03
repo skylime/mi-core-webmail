@@ -20,7 +20,7 @@ curl -L "https://github.com/roundcube/roundcubemail/releases/download/${ROUNDCUB
 echo "* Download Roundcube plugins and extract them"
 mkdir -p /var/www/roundcubemail/plugins/html5_notifier
 curl -L "https://github.com/kitist/html5_notifier/archive/v0.5.2.tar.gz" | tar xz -C /var/www/roundcubemail/plugins/html5_notifier --strip-components=1
-curl -L "http://axel.sjostedt.no/misc/files/rcube_plg_serverinfo.tar.gz" | tar xz -C /var/www/roundcubemail/plugins
+cp /var/www/roundcubemail/plugins/html5_notifier/config/config.inc.php.dist /var/www/roundcubemail/plugins/html5_notifier/config/config.inc.php
 
 # Setup permissions for roundcubemail folders
 echo "* Setup permissions for roundcubemail folders"

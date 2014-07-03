@@ -6,14 +6,13 @@ Please refer to https://github.com/joyent/mibe for use of this repo.
 
 Create zone that contains nginx, php with roundcube web interface for webmail
 support. It still requires a working database server that already contains the
-roundcube database scheme.
+[roundcube database scheme](https://github.com/roundcube/roundcubemail/blob/master/SQL/mysql.initial.sql).
 
 Enabled plugins are:
 
 - managesieve
 - zipdownload
-- html5_notifier (https://github.com/kitist/html5_notifier)
-- serverinfo (http://axel.sjostedt.no/misc/dev/roundcube/)
+- [html5_notifier](https://github.com/kitist/html5_notifier)
 
 ## mdata variables
 
