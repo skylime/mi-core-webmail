@@ -27,6 +27,14 @@ curl -L "https://github.com/roundcube/roundcubemail/releases/download/${ROUNDCUB
 echo "* Setup permissions for roundcubemail folders"
 chown -R www:www /var/www
 
+# Nginx SSL folder
+echo "* Create ssl folder"
+mkdir -p /opt/local/etc/nginx/ssl
+
+# Remove install folder from roundcube
+echo "* Remove install folder from roundcube"
+rm -r /var/www/roundcubemail/installer
+
 # Clean up
 echo "* Cleaning up."
 rm -rf /root/*
