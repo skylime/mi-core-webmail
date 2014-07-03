@@ -1,5 +1,5 @@
 ROUNDCUBE_PROVISION_CONFIG='/var/www/roundcubemail/config/config.inc.php.provision'
-RANDOM_KEY=$(openssl rand -base64 48)
+RANDOM_KEY=$(openssl rand -base64 24)
 
 cat << EOF >> ${ROUNDCUBE_PROVISION_CONFIG}
 <?php
