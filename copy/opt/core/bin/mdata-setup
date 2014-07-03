@@ -19,7 +19,7 @@ cat << EOF > ${ROUNDCUBE_CONF}
 \$config['smtp_server']  = "$(mdata-get smtp_server)";
 \$config['smtp_port']    = "$(mdata-get smtp_port)";
 
-\$config['des_key'] = "";
+\$config['des_key']      = "$(openssl rand -base64 48)";
 EOF
 
 # configure roundcube (not required)
