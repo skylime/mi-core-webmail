@@ -38,6 +38,10 @@ rm /tmp/mdata-setup.xml
 echo "* Remove install folder from roundcube"
 rm -r /var/www/roundcubemail/installer
 
+# munin
+echo "* Create munin template file that will be used during mdata setup"
+cp /opt/local/etc/munin/munin-node.conf /opt/local/etc/munin/munin-node.conf.tpl
+
 # Clean up
 echo "* Cleaning up."
 rm -rf /root/*

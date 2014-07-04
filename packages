@@ -10,3 +10,6 @@ php55-mcrypt
 php55-mbstring
 php55-intl
 php55-exif
+munin-node
+p5-Net-CIDR
+p5-LWP-UserAgent-Determined
