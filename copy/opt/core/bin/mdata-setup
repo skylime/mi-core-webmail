@@ -1,58 +1,17 @@
 #!/bin/bash
+# source all files from /opt/core/var/mdata-setup/includes/*.sh
+# we recommend a order by NUMBER-scriptname.sh
 
-ROUNDCUBE_PATH='/var/www/roundcubemail'
-ROUNDCUBE_CONF=${ROUNDCUBE_PATH}'/config/config.inc.php'
+PATH=/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
+export PATH
 
-# nginx ssl setup
-mdata-get nginx_ssl > /opt/local/etc/nginx/ssl/nginx.pem
-chmod 400 /opt/local/etc/nginx/ssl/nginx.pem
+# Set basedir for includes
+MDATA_SETUP_INC='/opt/core/var/mdata-setup/includes'
 
-# configure roundcube (required)
-cat ${ROUNDCUBE_CONF}.provision > ${ROUNDCUBE_CONF}
-cat << EOF >> ${ROUNDCUBE_CONF}
-// SETUP VIA MDATA
-\$config['product_name'] = "$(mdata-get product_name)";
-
-\$config['db_dsnw']      = "$(mdata-get db_dsnw)";
-
-\$config['default_host'] = "$(mdata-get imap_host)";
-\$config['default_port'] = "$(mdata-get imap_port)";
-
-\$config['smtp_server']  = "$(mdata-get smtp_server)";
-\$config['smtp_port']    = "$(mdata-get smtp_port)";
-EOF
-
-# configure roundcube (not required)
-if mdata-get support_url 1>/dev/null 2>&1; then
-	echo "\$config['support_url']  = \"$(mdata-get support_url)\";" >> ${ROUNDCUBE_CONF}
-fi
-if mdata-get skin_logo 1>/dev/null 2>&1; then
-	echo "\$config['skin_logo']    = \"$(mdata-get skin_logo)\";" >> ${ROUNDCUBE_CONF}
-fi
-if mdata-get ip_check 1>/dev/null 2>&1; then
-	echo "\$config['ip_check']     = $(mdata-get ip_check)" >> ${ROUNDCUBE_CONF}
-fi
-
-# configure sieve plugin
-cat << EOF >> ${ROUNDCUBE_PATH}'/plugins/managesieve/config.inc.php'
-<?php
-\$config['managesieve_host'] = "$(mdata-get imap_host)";
-EOF
-
-# munin
-MUNIN_CONF='/opt/local/etc/munin/munin-node.conf'
-
-cp ${MUNIN_CONF}.tpl ${MUNIN_CONF}
-if mdata-get munin_allow 1>/dev/null 2>&1; then
-	echo "# mdata-get munin_allow" >> ${MUNIN_CONF}
-	for allow in $(mdata-get munin_allow); do
-		echo "cidr_allow ${allow}" >> ${MUNIN_CONF}
-	done
-fi
-
-if mdata-get munin_deny 1>/dev/null 2>&1; then
-	echo "# mdata-get munin_deny" >> ${MUNIN_CONF}
-	for deny in $(mdata-get munin_deny); do
-		echo "cidr_deny ${deny}" >> ${MUNIN_CONF}
+if [ -d "${MDATA_SETUP_INC}" ]; then
+	for FILE in ${MDATA_SETUP_INC}/*.sh; do
+		if [ -r "${FILE}" ]; then
+			source ${FILE}
+		fi
 	done
 fi
