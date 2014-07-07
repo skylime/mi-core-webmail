@@ -3,6 +3,8 @@
 # Put customizations to your image in this file.
 
 ROUNDCUBE_VERSION=1.0.1
+MUNIN_PLUGIN_VERSION='0.2'
+
 PATH=/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin
 
 # Exit if any commands fail
