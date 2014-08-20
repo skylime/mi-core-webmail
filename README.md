@@ -30,9 +30,6 @@ Enabled plugins are:
 
 - `nginx_ssl` (required): ssl cert, key and CA for imaps and pop3s in pem format
 
-- `munin_allow`: hosts that are allowed to connect to munin, separated by space
-- `munin_deny`: hosts that are explicit not allowed, separated by space
-
 ## services
 
 - `80/tcp`: http redirect to https
