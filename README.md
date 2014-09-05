@@ -1,8 +1,8 @@
-# mi-core-webmail
+# mi-core-webmail
 
-Please refer to https://github.com/joyent/mibe for use of this repo.
+This repository is based on [Joyent mibe](https://github.com/joyent/mibe). Please note this repository should be build with the [mi-core-base](https://github.com/skylime/mi-core-base) mibe image.
 
-## description
+## description
 
 Create zone that contains nginx, php with roundcube web interface for webmail
 support. It still requires a working database server that already contains the
@@ -14,21 +14,31 @@ Enabled plugins are:
 - zipdownload
 - [html5_notifier](https://github.com/kitist/html5_notifier)
 
-## mdata variables
+This image is part of the following images:
 
-- `product_name` (required): The name of your service (used to compose page titles)
+- [mi-core-mailapi](https://github.com/skylime/mi-core-mailapi)
+- [mi-core-mx](https://github.com/skylime/mi-core-mx)
+- [mi-core-submission](https://github.com/skylime/mi-core-submission)
+- [mi-core-mbox](https://github.com/skylime/mi-core-mbox)
+- [mi-core-webmail](://github.com/skylime/mi-core-webmail)
+
+## mdata variables
+
+- `product_name` [*]: The name of your service (used to compose page titles)
 - `support_url`: Provide an URL where a user can get support for this Roundcube installation
 - `skin_logo`: Custom image to display instead of the Roundcube logo
 - `ip_check`: Check client IP in session authorization
 
-- `db_dsnw` (required): Database settings for read/write operations, mysql://roundcube:@localhost/roundcubemail
+- `db_dsnw` [*]: Database settings for read/write operations, mysql://roundcube:@localhost/roundcubemail
 
-- `imap_host` (required): The IMAP host(s) chosen to perform the log-in, ssl://imap.host.com
-- `imap_port` (required): TCP port used for IMAP connections
-- `smtp_server` (required): Use this host for sending mails, ssl://smtp.host.com
-- `smtp_port` (required): TCP port used for SMTP connections
+- `imap_host` [*]: The IMAP host(s) chosen to perform the log-in, ssl://imap.host.com
+- `imap_port` [*]: TCP port used for IMAP connections
+- `smtp_server` [*]: Use this host for sending mails, ssl://smtp.host.com
+- `smtp_port` [*]: TCP port used for SMTP connections
 
-- `nginx_ssl` (required): ssl cert, key and CA for imaps and pop3s in pem format
+- `nginx_ssl` [*]: ssl cert, key and CA for imaps and pop3s in pem format
+
+[*] is required to work properly.
 
 ## services
 
