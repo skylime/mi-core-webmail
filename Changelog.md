@@ -1,25 +1,30 @@
 # Changelog
 
-## 14.2.3
+## 14.2.4
+
+### New
+
+* version update with fix for logadm. [Thomas Merkel]
+
+### Changes
+
+* log to extra file to have a working logadm. [Thomas Merkel]
+
+## 14.2.3 (2014-10-01)
 
 ### New
 
 * change php default variables. [Thomas Merkel]
-* version update because of change for sieve. [Thomas Merkel]
 
-### Fix
+### Changes
 
-* use valid host for sieve server. [Thomas Merkel]
+* update changelog. [Thomas Merkel]
 
 ## 14.2.2 (2014-09-27)
 
 ### New
 
 * update to new core-base image 43aaede4-4622-11e4-a839-d3704910e498. [Thomas Merkel]
-
-### Changes
-
-* chg: doc: update changelog @minor. [Thomas Merkel]
 
 ## 14.2.1 (2014-09-25)
 
