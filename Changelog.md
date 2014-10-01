@@ -4,6 +4,7 @@
 
 ### New
 
+* change php default variables. [Thomas Merkel]
 * version update because of change for sieve. [Thomas Merkel]
 
 ### Fix
