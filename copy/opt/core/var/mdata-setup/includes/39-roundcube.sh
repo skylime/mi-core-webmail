@@ -33,5 +33,5 @@ fi
 # configure sieve plugin
 cat << EOF >> ${ROUNDCUBE_PATH}'/plugins/managesieve/config.inc.php'
 <?php
-\$config['managesieve_host'] = "$(mdata-get imap_host)";
+\$config['managesieve_host'] = "tls://%h";
 EOF
