@@ -1,10 +1,24 @@
 # Changelog
 
-## 14.2.2
+## 14.2.3
+
+### New
+
+* version update because of change for sieve. [Thomas Merkel]
+
+### Fix
+
+* use valid host for sieve server. [Thomas Merkel]
+
+## 14.2.2 (2014-09-27)
 
 ### New
 
 * update to new core-base image 43aaede4-4622-11e4-a839-d3704910e498. [Thomas Merkel]
+
+### Changes
+
+* chg: doc: update changelog @minor. [Thomas Merkel]
 
 ## 14.2.1 (2014-09-25)
 
