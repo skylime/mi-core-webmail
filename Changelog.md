@@ -1,6 +1,12 @@
 # Changelog
 
-## 14.2.4
+## 14.2.5
+
+### New
+
+* update to new core-base image 5f32cd38-4a1f-11e4-82e4-632b59542bc6. [Thomas Merkel]
+
+## 14.2.4 (2014-10-01)
 
 ### New
 
@@ -15,10 +21,15 @@
 ### New
 
 * change php default variables. [Thomas Merkel]
+* version update because of change for sieve. [Thomas Merkel]
 
 ### Changes
 
 * update changelog. [Thomas Merkel]
+
+### Fix
+
+* use valid host for sieve server. [Thomas Merkel]
 
 ## 14.2.2 (2014-09-27)
 
