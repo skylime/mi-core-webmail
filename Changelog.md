@@ -1,5 +1,19 @@
 # Changelog
 
+## 14.2.6
+
+### New
+
+* version update of roundcube to 1.0.3. [Thomas Merkel]
+
+### Changes
+
+* mibe version bump and new base image. [Thomas Merkel]
+
+### Other
+
+* license update to SkyLime GmbH. [Thomas Merkel]
+
 ## 14.2.5
 
 ### New
