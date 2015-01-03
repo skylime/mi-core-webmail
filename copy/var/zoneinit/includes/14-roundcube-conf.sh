@@ -16,9 +16,7 @@ cat << EOF >> ${ROUNDCUBE_PROVISION_CONFIG}
 \$config['plugins'] = array(
 	'managesieve',
 	'zipdownload',
-	'html5_notifier',
-	'serverinfo',
-	'thunderbird_labels'
+	'html5_notifier'
 );
 
 EOF
