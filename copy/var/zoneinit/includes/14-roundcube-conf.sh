@@ -10,6 +10,8 @@ cat << EOF >> ${ROUNDCUBE_PROVISION_CONFIG}
 \$config['use_https']        = false;
 \$config['password_charset'] = "UTF-8";
 \$config['default_charset']  = "UTF-8";
+\$config['smtp_user']        = '%u';
+\$config['smtp_pass']        = '%p';
 
 \$config['plugins'] = array(
 	'managesieve',
