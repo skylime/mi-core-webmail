@@ -2,16 +2,13 @@
 
 ## 14.2.6
 
-### New
-
-* version update of roundcube to 1.0.3. [Thomas Merkel]
-
-### Changes
-
-* mibe version bump and new base image. [Thomas Merkel]
-
 ### Other
 
+* For the roundcube zip plugin we need php-zip installed and enabled. [Thomas Merkel]
+* Remove unused or not installed plugins from the configuration file. [Thomas Merkel]
+* Minor upgrade to new roundcube version 1.0.4. [Thomas Merkel]
+* Force SMTP authentication using the login username (email address) and the password. [Thomas Merkel]
+* If hostname isn't correct EHLO will fail on most SMTP servers. Hostname is auto detected from http server (sometimes), but it's also broken somehow so we use a fixed mdata variable. [Thomas Merkel]
 * license update to SkyLime GmbH. [Thomas Merkel]
 
 ## 14.2.5
