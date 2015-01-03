@@ -4,7 +4,7 @@
 
 PATH=/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin
 
-ROUNDCUBE_VERSION=1.0.3
+ROUNDCUBE_VERSION=1.0.4
 
 # Munin plugins
 MUNIN_PLUGIN_SRC='/opt/local/lib/munin/plugins'
