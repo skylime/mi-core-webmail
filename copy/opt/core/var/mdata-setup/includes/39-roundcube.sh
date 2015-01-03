@@ -8,6 +8,8 @@ ROUNDCUBE_CONF=${ROUNDCUBE_PATH}'/config/config.inc.php'
 cat ${ROUNDCUBE_CONF}.provision > ${ROUNDCUBE_CONF}
 cat << EOF >> ${ROUNDCUBE_CONF}
 // SETUP VIA MDATA
+\$config['smtp_helo_host'] = "$(mdata-get sdc:hostname)";
+
 \$config['product_name'] = "$(mdata-get product_name)";
 
 \$config['db_dsnw']      = "$(mdata-get db_dsnw)";
