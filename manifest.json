@@ -1,0 +1,27 @@
+{
+	"name":         "core-webmail",
+	"version":      "15.1.0",
+	"description":  "Roundcube webmail configured with nginx and php-fpm",
+	"organization": "SkyLime",
+	"brand":        "Instance",
+	"homepage":     "https://github.com/skylime/mi-core-base",
+	"base":         "156cac3d-2d48-489e-b12c-5ff493bffe2d",
+	"customer_metadata": {
+		"root_authorized_keys": {"type": "text", "description": "SSH public key(s) for the root user"},
+		"syslog_host":          {"type": "text", "description": "syslog server IP address and port seperated by colon"},
+		"mail_smarthost":       {"type": "text", "description": "hostname of remote smtp server"},
+		"mail_auth_user":       {"type": "text", "description": "smtp username if authentication is required"},
+		"mail_auth_pass":       {"type": "text", "description": "smtp password"},
+		"mail_adminaddr":       {"type": "text", "description": "admin email address alias for all mails to root@localhost"},
+		"product_name":         {"type": "text", "description": "name of your service (used to compose page titles)"},
+		"support_url":          {"type": "text", "description": "URL where a user can get support for this Roundcube installation"},
+		"skin_logo":            {"type": "text", "description": "custom image to display instead of the Roundcube logo"},
+		"ip_check":             {"type": "text", "description": "check client IP in session authorization"},
+		"db_dsnw":              {"type": "text", "description": "database settings for read/write operations, mysql://roundcube:@localhost/roundcubemail"},
+		"imap_host":            {"type": "text", "description": "IMAP host(s) chosen to perform the log-in, ssl://imap.host.com"},
+		"imap_port":            {"type": "text", "description": "TCP port used for IMAP connections"},
+		"smtp_server":          {"type": "text", "description": "host for sending mails, ssl://smtp.host.com"},
+		"smtp_port":            {"type": "text", "description": "TCP port used for SMTP connections"},
+		"nginx_ssl":            {"type": "text", "description": "ssl cert, key and CA for imaps and pop3s in pem format"}
+	}
+}
