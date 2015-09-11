@@ -13,3 +13,9 @@ php55-intl
 php55-exif
 php55-zip
 php55-zlib
+php55-pear-Net_Sieve
+php55-pear-Net_SMTP
+php55-pear-Net_IDNA2
+php55-pear-Mail_Mime
+php55-pear-Mail_mimeDecode
+php55-pear-Auth_SASL
