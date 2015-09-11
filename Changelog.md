@@ -1,5 +1,26 @@
 # Changelog
 
+## 15.1.1
+
+### New
+
+* Update max body size for nginx to allow bigger uploads. [Thomas Merkel]
+* Roundcube version bump to 1.1.2. [Thomas Merkel]
+
+### Changes
+
+* Set default SMTP and IMAP port if not set via mdata. [Thomas Merkel]
+* Don't require nginx_ssl because we could generate our own ssl certificate by default. [Thomas Merkel]
+* Version bump to new core-base image. [Thomas Merkel]
+
+  Cleanup customize script (remove unused comments). Use new munin plugins,
+  switch to newest core-base version (15Q1).
+
+### Other
+
+* Add manifest.json file. [Thomas Merkel]
+* Switch to gnutar. [Thomas Merkel]
+
 ## 14.2.6
 
 ### Other

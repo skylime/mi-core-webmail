@@ -1,7 +1,7 @@
 name="core-webmail"
 organization="SkyLime"
 brand="Instance"
-version="15.1.0"
+version="15.1.1"
 description="Roundcube webmail configured with nginx and php-fpm"
 homepage="https://github.com/skylime/mi-core-webmail"
 users="root admin"
