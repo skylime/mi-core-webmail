@@ -16,6 +16,10 @@
   Cleanup customize script (remove unused comments). Use new munin plugins,
   switch to newest core-base version (15Q1).
 
+* Add missing pear plugins. [Thomas Merkel]
+
+* Require some more PHP extensions to support SQlite for Roundcube. [Thomas Merkel]
+
 ### Other
 
 * Add manifest.json file. [Thomas Merkel]
