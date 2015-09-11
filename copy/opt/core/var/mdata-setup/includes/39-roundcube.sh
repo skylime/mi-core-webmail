@@ -4,21 +4,27 @@
 ROUNDCUBE_PATH='/var/www/roundcubemail'
 ROUNDCUBE_CONF=${ROUNDCUBE_PATH}'/config/config.inc.php'
 
+# default values for imap and smtp port
+IMAP_PORT=${IMAP_PORT-$(mdata-get imap_port)} || \
+	IMAP_PORT=993;
+SMTP_PORT=${SMTP_PORT-$(mdata-get smtp_port)} || \
+	SMTP_PORT=465;
+
 # configure roundcube (required)
 cat ${ROUNDCUBE_CONF}.provision > ${ROUNDCUBE_CONF}
 cat << EOF >> ${ROUNDCUBE_CONF}
 // SETUP VIA MDATA
-\$config['smtp_helo_host'] = "$(mdata-get sdc:hostname)";
+\$config['smtp_helo_host'] = "$(hostname)";
 
 \$config['product_name'] = "$(mdata-get product_name)";
 
 \$config['db_dsnw']      = "$(mdata-get db_dsnw)";
 
 \$config['default_host'] = "$(mdata-get imap_host)";
-\$config['default_port'] = "$(mdata-get imap_port)";
+\$config['default_port'] = "${IMAP_PORT}";
 
 \$config['smtp_server']  = "$(mdata-get smtp_server)";
-\$config['smtp_port']    = "$(mdata-get smtp_port)";
+\$config['smtp_port']    = "${SMTP_PORT}";
 EOF
 
 # configure roundcube (not required)
