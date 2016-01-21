@@ -28,9 +28,9 @@ mkdir -p /var/www/roundcubemail/plugins/html5_notifier
 curl -L "https://github.com/kitist/html5_notifier/archive/v0.5.2.tar.gz" | gtar xz -C /var/www/roundcubemail/plugins/html5_notifier --strip-components=1
 cp /var/www/roundcubemail/plugins/html5_notifier/config/config.inc.php.dist /var/www/roundcubemail/plugins/html5_notifier/config/config.inc.php
 
-mkdir -p /var/www/roundcubemail/plugins/rcmcarddav
-curl -L "https://github.com/blind-coder/rcmcarddav/archive/carddav_1.0.0.tar.gz" | gtar xz -C /var/www/roundcubemail/plugins/rcmcarddav --strip-components=1
-cat << EOF >> /var/www/roundcubemail/plugins/rcmcarddav/config.inc.php
+mkdir -p /var/www/roundcubemail/plugins/carddav
+curl -L "https://github.com/blind-coder/rcmcarddav/archive/carddav_1.0.0.tar.gz" | gtar xz -C /var/www/roundcubemail/plugins/carddav --strip-components=1
+cat << EOF >> /var/www/roundcubemail/plugins/carddav/config.inc.php
 <?php
 // RCMCardDAV Plugin Admin Settings
 // ** GLOBAL SETTINGS
