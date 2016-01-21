@@ -43,3 +43,25 @@ cat << EOF >> ${ROUNDCUBE_PATH}'/plugins/managesieve/config.inc.php'
 <?php
 \$config['managesieve_host'] = "tls://%h";
 EOF
+
+# configure carddav plugin
+cat << EOF >> ${ROUNDCUBE_PATH}'/plugins/carddav/config.inc.php'
+<?php
+// RCMCardDAV Plugin Admin Settings
+// ** GLOBAL SETTINGS
+
+// Disallow users to add / edit / delete custom addressbooks (default: false)
+// If true, User cannot add custom addressbooks
+// If false, user can add / edit / delete custom addressbooks
+\$prefs['_GLOBAL']['fixed'] = false;
+EOF
+
+# for standalone usage create sqlite database (if used in db_dsnw)
+if [[ $(mdata-get db_dsnw) =~ "sqlite" ]]; then
+	db_file=$(mdata-get db_dsnw | sed 's|.*:/*|/|g')
+	if [[ ! -e "${db_file}" ]]; then
+		sqlite3 ${db_file} < ${ROUNDCUBE_PATH}'/SQL/sqlite.initial.sql'
+		sqlite3 ${db_file} < ${ROUNDCUBE_PATH}'/plugins/carddav/dbinit/sqlite3.sql'
+		chown www:www ${db_file}
+	fi
+fi
