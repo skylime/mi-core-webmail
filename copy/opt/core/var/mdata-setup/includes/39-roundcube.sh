@@ -20,10 +20,10 @@ cat << EOF >> ${ROUNDCUBE_CONF}
 
 \$config['db_dsnw']      = "$(mdata-get db_dsnw)";
 
-\$config['default_host'] = "$(mdata-get imap_host)";
+\$config['default_host'] = "ssl://$(mdata-get imap_server)";
 \$config['default_port'] = "${IMAP_PORT}";
 
-\$config['smtp_server']  = "$(mdata-get smtp_server)";
+\$config['smtp_server']  = "ssl://$(mdata-get smtp_server)";
 \$config['smtp_port']    = "${SMTP_PORT}";
 EOF
 

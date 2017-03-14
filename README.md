@@ -24,21 +24,19 @@ This image is part of the following images:
 
 ## mdata variables
 
-- `product_name` [*]: The name of your service (used to compose page titles)
+- `product_name` `[*]`: The name of your service (used to compose page titles)
 - `support_url`: Provide an URL where a user can get support for this Roundcube installation
 - `skin_logo`: Custom image to display instead of the Roundcube logo
 - `ip_check`: Check client IP in session authorization
 
-- `db_dsnw` [*]: Database settings for read/write operations, mysql://roundcube:@localhost/roundcubemail
+- `db_dsnw` `[*]`: Database settings for read/write operations, mysql://roundcube:@localhost/roundcubemail
 
-- `imap_host` [*]: The IMAP host(s) chosen to perform the log-in, ssl://imap.host.com
-- `imap_port` [*]: TCP port used for IMAP connections
-- `smtp_server` [*]: Use this host for sending mails, ssl://smtp.host.com
-- `smtp_port` [*]: TCP port used for SMTP connections
+- `imap_server` `[*]`: The IMAP host(s) chosen to perform the log-in, imap.host.com
+- `smtp_server` `[*]`: Use this host for sending mails, smtp.host.com
 
-- `nginx_ssl` [*]: ssl cert, key and CA for imaps and pop3s in pem format
+- `nginx_ssl` `[*]`: ssl cert, key and CA for imaps and pop3s in pem format
 
-[*] is required to work properly.
+`[*]` is required to work properly.
 
 ## services
 

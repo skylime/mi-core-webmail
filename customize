@@ -4,12 +4,12 @@
 
 PATH=/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin
 
-ROUNDCUBE_VERSION=1.1.4
+ROUNDCUBE_VERSION=1.2.4
 
 # Munin plugins
 MUNIN_PLUGINS="
-	'nginx_request'
-	'nginx_status'
+	nginx_request
+	nginx_status
 "
 
 # Exit if any commands fail
@@ -20,16 +20,22 @@ echo "* Configuring image specific packages.";
 mkdir -p /var/www/roundcubemail
 
 echo "* Download and extract roundcube to /var/www"
-curl -L "https://github.com/roundcube/roundcubemail/releases/download/${ROUNDCUBE_VERSION}/roundcubemail-${ROUNDCUBE_VERSION}.tar.gz" | gtar xz -C /var/www/roundcubemail --strip-components=1
+curl -L "https://github.com/roundcube/roundcubemail/releases/download/${ROUNDCUBE_VERSION}/roundcubemail-${ROUNDCUBE_VERSION}-complete.tar.gz" | gtar xz -C /var/www/roundcubemail --strip-components=1
 
 echo "* Download Roundcube plugins and extract them"
 
 mkdir -p /var/www/roundcubemail/plugins/html5_notifier
-curl -L "https://github.com/kitist/html5_notifier/archive/v0.5.2.tar.gz" | gtar xz -C /var/www/roundcubemail/plugins/html5_notifier --strip-components=1
+curl -L "https://github.com/stremlau/html5_notifier/archive/v0.6.2.tar.gz" | gtar xz -C /var/www/roundcubemail/plugins/html5_notifier --strip-components=1
 cp /var/www/roundcubemail/plugins/html5_notifier/config/config.inc.php.dist /var/www/roundcubemail/plugins/html5_notifier/config/config.inc.php
 
 mkdir -p /var/www/roundcubemail/plugins/carddav
-curl -L "https://github.com/blind-coder/rcmcarddav/archive/carddav_1.0.0.tar.gz" | gtar xz -C /var/www/roundcubemail/plugins/carddav --strip-components=1
+curl -L "https://github.com/blind-coder/rcmcarddav/releases/download/v2.0.4/carddav-2.0.4.tar.bz2" | gtar xj -C /var/www/roundcubemail/plugins/carddav --strip-components=1
+
+echo "* Download Roundcube Mobile view"
+mkdir /var/www/roundcubemail/skins/larry_mobile /var/www/roundcubemail/plugins/jquery_mobile /var/www/roundcubemail/plugins/mobile
+curl -L https://github.com/messagerie-melanie2/Roundcube-Skin-Melanie2-Larry-Mobile/archive/v0.4.7.tar.gz | gtar xz -C /var/www/roundcubemail/skins/larry_mobile --strip-components=1
+curl -L https://github.com/messagerie-melanie2/Roundcube-Plugin-JQuery-Mobile/archive/v1.0.tar.gz | gtar xz -C /var/www/roundcubemail/plugins/jquery_mobile --strip-components=1
+curl -L https://github.com/messagerie-melanie2/Roundcube-Plugin-Mobile/archive/v0.4.7.tar.gz | gtar xz -C /var/www/roundcubemail/plugins/mobile --strip-components=1
 
 echo "* Setup permissions for roundcubemail folders"
 chown -R www:www /var/www

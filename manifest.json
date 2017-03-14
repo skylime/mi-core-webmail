@@ -1,14 +1,14 @@
 {
 	"name":         "core-webmail",
-	"version":      "15.3.0",
+	"version":      "16.4.0",
 	"description":  "Roundcube webmail configured with nginx and php-fpm",
 	"organization": "SkyLime",
 	"brand":        "Instance",
 	"homepage":     "https://github.com/skylime/mi-core-webmail",
-	"base":         "7a44023e-c9bc-4d76-a9c6-ae006f128ffa",
+	"base":         "46b7ed55-0556-4027-9fcf-1b77d7b03b43",
 	"customer_metadata": {
+		"admin_authorized_keys": {"type": "text", "description": "SSH public authorized key(s) for the admin user"},
 		"root_authorized_keys": {"type": "text", "description": "SSH public key(s) for the root user"},
-		"syslog_host":          {"type": "text", "description": "syslog server IP address and port seperated by colon"},
 		"mail_smarthost":       {"type": "text", "description": "hostname of remote smtp server"},
 		"mail_auth_user":       {"type": "text", "description": "smtp username if authentication is required"},
 		"mail_auth_pass":       {"type": "text", "description": "smtp password"},
@@ -18,10 +18,8 @@
 		"skin_logo":            {"type": "text", "description": "custom image to display instead of the Roundcube logo"},
 		"ip_check":             {"type": "text", "description": "check client IP in session authorization"},
 		"db_dsnw":              {"type": "text", "description": "database settings for read/write operations, mysql://roundcube:@localhost/roundcubemail"},
-		"imap_host":            {"type": "text", "description": "IMAP host(s) chosen to perform the log-in, ssl://imap.host.com"},
-		"imap_port":            {"type": "text", "description": "TCP port used for IMAP connections"},
-		"smtp_server":          {"type": "text", "description": "host for sending mails, ssl://smtp.host.com"},
-		"smtp_port":            {"type": "text", "description": "TCP port used for SMTP connections"},
+		"imap_server":          {"type": "text", "description": "IMAP host(s) chosen to perform the log-in, imap.host.com"},
+		"smtp_server":          {"type": "text", "description": "host for sending mails, smtp.host.com"},
 		"nginx_ssl":            {"type": "text", "description": "ssl cert, key and CA for imaps and pop3s in pem format"}
 	}
 }
