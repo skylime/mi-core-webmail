@@ -12,6 +12,7 @@ cat << EOF >> ${ROUNDCUBE_PROVISION_CONFIG}
 \$config['default_charset']  = "UTF-8";
 \$config['smtp_user']        = '%u';
 \$config['smtp_pass']        = '%p';
+\$config['skin']             = 'larry_mobile';
 
 \$config['plugins'] = array(
 	'managesieve',

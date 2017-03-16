@@ -32,10 +32,11 @@ mkdir -p /var/www/roundcubemail/plugins/carddav
 curl -L "https://github.com/blind-coder/rcmcarddav/releases/download/v2.0.4/carddav-2.0.4.tar.bz2" | gtar xj -C /var/www/roundcubemail/plugins/carddav --strip-components=1
 
 echo "* Download Roundcube Mobile view"
+
 mkdir /var/www/roundcubemail/skins/larry_mobile /var/www/roundcubemail/plugins/jquery_mobile /var/www/roundcubemail/plugins/mobile
-curl -L https://github.com/messagerie-melanie2/Roundcube-Skin-Melanie2-Larry-Mobile/archive/v0.4.7.tar.gz | gtar xz -C /var/www/roundcubemail/skins/larry_mobile --strip-components=1
-curl -L https://github.com/messagerie-melanie2/Roundcube-Plugin-JQuery-Mobile/archive/v1.0.tar.gz | gtar xz -C /var/www/roundcubemail/plugins/jquery_mobile --strip-components=1
-curl -L https://github.com/messagerie-melanie2/Roundcube-Plugin-Mobile/archive/v0.4.7.tar.gz | gtar xz -C /var/www/roundcubemail/plugins/mobile --strip-components=1
+curl -L https://github.com/messagerie-melanie2/Roundcube-Skin-Melanie2-Larry-Mobile/archive/master.tar.gz | gtar xz -C /var/www/roundcubemail/skins/larry_mobile --strip-components=1
+curl -L https://github.com/messagerie-melanie2/Roundcube-Plugin-JQuery-Mobile/archive/master.tar.gz | gtar xz -C /var/www/roundcubemail/plugins/jquery_mobile --strip-components=1
+curl -L https://github.com/messagerie-melanie2/Roundcube-Plugin-Mobile/archive/master.tar.gz | gtar xz -C /var/www/roundcubemail/plugins/mobile --strip-components=1
 
 echo "* Setup permissions for roundcubemail folders"
 chown -R www:www /var/www
