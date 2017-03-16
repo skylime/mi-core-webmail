@@ -1,5 +1,20 @@
 # Changelog
 
+## 16.4.0
+
+### New
+
+* Roundcube version change to 1.2.4. [Thomas Merkel]
+
+  Provide the new core-base image with newest stable Roundcube version 1.2.4. Include additional plugins and skins to support mobile devices. Change from PHP 5.5 to PHP 7.0
+
+### Other
+
+* Switch to master branch for the plugins (and mobile skin) [Thomas Merkel]
+* Move carddav config to extra file, allow sqlite minimal setup. [Thomas Merkel]
+* Plugin need to be named carddav because it&#x27;s required by the lookup function. [Thomas Merkel]
+* Enable and add new RoundCube plugin for RCMCardDAV. [Thomas Merkel]
+
 ## 15.1.1
 
 ### New
